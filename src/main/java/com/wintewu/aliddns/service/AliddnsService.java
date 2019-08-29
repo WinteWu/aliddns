@@ -9,5 +9,4 @@ public class AliddnsService {
 
     private static Logger logger = LoggerFactory.getLogger(AliddnsService.class);
 
-
 }

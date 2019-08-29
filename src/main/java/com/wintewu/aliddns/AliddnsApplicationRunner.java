@@ -21,6 +21,7 @@ import java.util.Set;
 
 /**
  * 应用启动时 校验一遍配置信息
+ * @author WinteWu
  */
 @Component
 @Order(1)
@@ -90,7 +91,8 @@ public class AliddnsApplicationRunner implements CommandLineRunner {
             }
         } catch (ClientException e) {
             String errCode = e.getErrCode();
-            if("SDK.InvalidRegionId".equals(errCode)){
+            String invalidRegionIdCode = "SDK.InvalidRegionId";
+            if(invalidRegionIdCode.equals(errCode)){
                 logger.error("请检查YML文件中 regionId 配置, 当前阿里云只支持 cn-hangzhou ,应用退出...");
             }else{
                 logger.error("校验域名信息异常", e);
@@ -104,7 +106,7 @@ public class AliddnsApplicationRunner implements CommandLineRunner {
     /**
      * 初始化所有未配置解析的主机记录
      */
-    public void initRRS(){
+    private void initRRS(){
         final String domainName = ddnsProperties.getDomainName();
         final List<String> rrs = ddnsProperties.getRrs();
         final Long ttl = ddnsProperties.getTtl();
@@ -144,7 +146,7 @@ public class AliddnsApplicationRunner implements CommandLineRunner {
                     logger.info("域名 {} 新增解析 {} ", domainName, rr);
                     CacheManager.getInstance().putValue(rr, acsResponse.getRecordId());
                 } catch (ClientException e) {
-                    logger.error("域名 {} 新增解析 {} 异常,系统退出, 请重试或手动添加改主机记录 {}", domainName, rr);
+                    logger.error("域名 {} 新增解析 {} 异常,系统退出, 请重试或手动添加改主机记录", domainName, rr);
                     throw new RuntimeException("新增解析异常", e);
                 }
             }

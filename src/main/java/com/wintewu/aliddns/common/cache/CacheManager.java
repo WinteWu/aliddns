@@ -1,11 +1,14 @@
 package com.wintewu.aliddns.common.cache;
 
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * @author WinteWu
+ */
 public class CacheManager {
 
-    private Map localCacheStore = new HashMap();
+    private Map<String,Object> localCacheStore = new ConcurrentHashMap<>();
 
     private static CacheManager cacheManager = new CacheManager();
 

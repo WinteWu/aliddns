@@ -9,12 +9,12 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * @author wintewu
+ * @author WinteWu
  */
 @Component
 @ConfigurationProperties(prefix = DDNSProperties.PREFIX)
 public class DDNSProperties {
-    public static final String PREFIX = "ddns";
+    static final String PREFIX = "ddns";
 
     private String regionId = "cn-hangzhou";
 

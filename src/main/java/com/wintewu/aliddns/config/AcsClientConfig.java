@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Client客户端Bean
+ * @author WinteWu
  */
 @Configuration
 public class AcsClientConfig {
@@ -19,7 +20,7 @@ public class AcsClientConfig {
     private DDNSProperties ddnsProperties;
 
     @Bean
-    public IAcsClient AcsClientBean(){
+    public IAcsClient acsClientBean(){
         String regionId = ddnsProperties.getRegionId();
         String accessKeyId = ddnsProperties.getAccessKeyId();
         String accessKeySecret = ddnsProperties.getAccessKeySecret();

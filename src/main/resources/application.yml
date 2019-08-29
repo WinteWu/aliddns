@@ -2,9 +2,9 @@ ddns:
   # 必填固定值，必须为“cn-hangzhou”
   regionId: cn-hangzhou
   # your accessKey
-  accessKeyId: 
+  accessKeyId:
   # your accessSecret
-  accessKeySecret: 
+  accessKeySecret:
   # 域名名称
   domainName: wintewu.com
   # 主机记录 可修改同域名下多条记录 记录之间用,隔开
