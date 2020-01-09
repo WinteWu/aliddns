@@ -15,7 +15,7 @@
             <level>info</level>
         </filter>
         <encoder>
-            <Pattern>${CONSOLE_LOG_PATTERN}</Pattern>
+            <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</Pattern>
             <!-- 设置字符集 -->
             <charset>UTF-8</charset>
         </encoder>

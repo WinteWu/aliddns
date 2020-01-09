@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class IPUtils {
     private static final List<String> URLS = new ArrayList<>();
 
     static {
-        URLS.add("https://whatismyip.wintewu.com1");
+        URLS.add("https://whatismyip.wintewu.com");
         URLS.add("https://ifconfig.me/ip");
         URLS.add("http://members.3322.org/dyndns/getip");
     }
@@ -35,7 +36,7 @@ public class IPUtils {
             try {
                 URL url = new URL(urlStr);
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-                try (BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), Charset.forName("UTF-8")))) {
+                try (BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream(), StandardCharsets.UTF_8))) {
                     return in.readLine();
                 }
             } catch (IOException ignored) {
