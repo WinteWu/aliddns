@@ -35,7 +35,6 @@ public class AliddnsUpdateTask {
 
     @Scheduled(cron = "0/3 * * * * ? ")
     public void execute(){
-        logger.info("1111");
         final String ip = IPUtils.getIP();
         if (StringUtils.isBlank(ip)) {
             logger.error("获取本机公网IP失败,任务跳过...");
